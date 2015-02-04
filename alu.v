@@ -3,13 +3,15 @@ module alu( input clk_i,
 				input[7:0] rs_i,
 				input[7:0] rt_i,
 				output[7:0] alu_result_o,
-				output set_o);
+				output set_o,
+				output zero);
 				
 		reg[7:0] result;
 		reg seto;
 
 		assign alu_result_o = result;
-		assign set_o = seto;
+		assign setlt_o = seto;
+		assign zero = !(rs_i - rt_i);
 				
 		always@(posedge clk_i)begin
 		
@@ -30,12 +32,12 @@ module alu( input clk_i,
 				3'b100: begin	//sub (signed) operation. $Rreg = $r2 - $r5
 					result[7:0] <= rs_i[7:0] - rt_i[7:0];
 				end
-				3'b101: begin	//slt operation. if ($r6 < $r7),  CB = 1 else CB = 0
+				3'b101: begin	//slt operation. if ($r6(rs_i) < $r7(rt_i)),  CB = 1 else CB = 0
 					if((rs_i - rt_i)> 16'd0)begin
 						seto <= 0;
 					end
 					else begin
-						seto <= 0;
+						seto <= 1;
 					end
 				end
 				3'b110: begin	//absolute operation. $Rreg = abs($Rreg)
@@ -47,9 +49,6 @@ module alu( input clk_i,
 					end
 				end
 				3'b111: begin	//seq operation. if ($Rreg == $r7), CB = 1 else CB = 0
-					if((rs_i - rt_i) == 0)begin
-						seto <= 1;
-					end
 				end
 			endcase
 		
