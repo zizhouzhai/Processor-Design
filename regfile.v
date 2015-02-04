@@ -12,7 +12,7 @@ module regfile
    reg [7:0] 	 regfile [7:0];
 
    assign rt_data_o = regfile[rt_addr_i];
-   assign rs_dataB = regfile[rs_addr_i];
+   assign rs_data_o = regfile[rs_addr_i];
 
    always @(posedge clk_i) begin
 	
