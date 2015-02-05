@@ -11,16 +11,17 @@ initial
 	begin
 
 	address_i = 7'b0000001;
-		$display("Current instruction is %d", data_o);
+	#5
+		$display("Current address is %h,instruction is %d",address_i, data_o);
 	#5
 	address_i = 7'b0000010;
-		$display("Current instruction is %d", data_o);
+		$display("Current address is %h,instruction is %d",address_i, data_o);
 	#5
 	address_i = 7'b0000011;
-		$display("Current instruction is %d", data_o);
+		$display("Current address is %h,instruction is %d",address_i, data_o);
 	#5
 	address_i = 7'b0000100;
-		$display("Current instruction is %d", data_o);
+		$display("Current address is %h,instruction is %d",address_i, data_o);
 	#5
 	address_i = 7'b0000101;
 		$display("Current instruction is %d", data_o);
