@@ -92,7 +92,7 @@ agreement for further details.
 	)
 )
 (symbol
-	(rect 656 144 880 256)
+	(rect 712 96 936 208)
 	(text "alu" (rect 5 0 25 15)(font "Arial" ))
 	(text "inst2" (rect 8 96 39 111)(font "Arial" ))
 	(port
@@ -141,3 +141,19 @@ agreement for further details.
 		(rectangle (rect 16 16 208 96))
 	)
 )
+(connector
+	(pt 488 160)
+	(pt 712 160)
+	(bus)
+)
+(connector
+	(pt 488 176)
+	(pt 712 176)
+	(bus)
+)
+(connector
+	(pt 712 176)
+	(pt 720 176)
+	(bus)
+)
+(junction (pt 712 176))

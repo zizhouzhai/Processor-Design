@@ -17,6 +17,12 @@ always @(*)
       1 : data_o = 8'h01; // or whatever your second inst is
       2 : data_o = 8'h02;
       3 : data_o = 8'h03;
+		4 : data_o = 8'h04;
+		5 : data_o = 8'h05;
+		6 : data_o = 8'h06;
+		7 : data_o = 8'h07;
+		8 : data_o = 8'h08;
+		9 : data_o = 8'h09;
       //and so on -- fill in the rest.
       default: data_o = 8'hff; // don’t forget this!
     endcase
