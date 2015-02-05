@@ -1,54 +1,47 @@
-module alu( input clk_i,
-				input[2:0] opcode_i,
+module alu(	input[2:0] opcode_i,
 				input[7:0] rs_i,
 				input[7:0] rt_i,
-				output[7:0] alu_result_o,
-				output set_o,
-				output zero);
-				
-		reg[7:0] result;
-		reg seto;
-
-		assign alu_result_o = result;
-		assign setlt_o = seto;
-		assign zero = !(rs_i - rt_i);
-				
-		always@(posedge clk_i)begin
+				output reg[7:0] alu_result_o,
+				output reg set_o,
+				output reg zero);
+								
+		always@(*)begin
 		
-			casex(opcode_i)
+			case(opcode_i)
 			
 				3'b000: begin	//and operation. regd = regs & $r7
-					result[7:0] <= rs_i[7:0] && rt_i[7:0];
+					alu_result_o[7:0] = rs_i[7:0] && rt_i[7:0];
 				end
 				3'b001: begin	//add operation. regd = regs + $r7
-					result[7:0] <= rs_i[7:0] + rt_i[7:0];
+					alu_result_o[7:0] = rs_i[7:0] + rt_i[7:0];
 				end
 				3'b010: begin	//sll operation. $Rreg << $r7
-					result[7:0] <= rs_i[7:0] << rt_i[7:0];
+					alu_result_o[7:0] = rs_i[7:0] << rt_i[7:0];
 				end
 				3'b011: begin	//srl operation. $Rreg >> 1
-					result[7:0] <= rs_i[7:0] >> 1;
+					alu_result_o[7:0] = rs_i[7:0] >> 1;
 				end
 				3'b100: begin	//sub (signed) operation. $Rreg = $r2 - $r5
-					result[7:0] <= rs_i[7:0] - rt_i[7:0];
+					alu_result_o[7:0] = rs_i[7:0] - rt_i[7:0];
 				end
 				3'b101: begin	//slt operation. if ($r6(rs_i) < $r7(rt_i)),  CB = 1 else CB = 0
 					if((rs_i - rt_i)> 16'd0)begin
-						seto <= 0;
+						set_o = 0;
 					end
 					else begin
-						seto <= 1;
+						set_o = 1;
 					end
 				end
 				3'b110: begin	//absolute operation. $Rreg = abs($Rreg)
 					if (rs_i < 16'd0) begin
-						result <= -rs_i ;
+						alu_result_o = -rs_i ;
 					end
 					else begin
-						result <= rs_i ;
+						alu_result_o = rs_i ;
 					end
 				end
 				3'b111: begin	//seq operation. if ($Rreg == $r7), CB = 1 else CB = 0
+					zero = !(rs_i - rt_i);
 				end
 			endcase
 		
