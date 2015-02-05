@@ -8,7 +8,7 @@ module pc(
 	reg [7:0] prgcount;
 
 	assign  pc_o = (start_i) ? startadd_i : 
-			  (branch_i) ? target_i:
+			  (branch_i) ? (pc_o + 1 + target_i):
 			  (pc_o + 1);
 
 endmodule
