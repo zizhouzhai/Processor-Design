@@ -7,7 +7,7 @@
 // because the output is 43.
 module instROM (
   input[6:0] address_i,
-  output[7:0] data_o
+  output reg[7:0] data_o
   );
  
 always @(*)

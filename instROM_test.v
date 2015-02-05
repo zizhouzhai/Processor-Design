@@ -6,7 +6,7 @@ wire [7:0] data_o;
 instROM u1(
 	.address_i(address_i),
 	.data_o(data_o)
-)
+);
 initial
 	begin
 
@@ -36,7 +36,7 @@ initial
 	#5
 	address_i = 7'b0001001;
 		$display("Current instruction is %d", data_o);
-	#5
+	
 
 	end
 endmodule

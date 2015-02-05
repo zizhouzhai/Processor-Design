@@ -63,7 +63,6 @@ initial
 	rt_i = 8'b11111111;
 	opcode_i = 3'b111;
 		$display("Result is %d", zero);
-	#10
 
 	end
 endmodule
