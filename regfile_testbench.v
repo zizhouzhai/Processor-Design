@@ -51,15 +51,35 @@ initial
 	write_data_i = 8'h11;
 	#10
 	write_i = 0;
-	//test read
+	
+	//test read from rt
 	rt_addr_i = 0;
 	#10
 	$display("From addr: %h, just read: %h",rt_addr_i,rt_data_o);
 	$display("Correct output: from addr: 0, just read 11"); 
+	
+	//test write again with diff addr.
+	write_i = 1;
+	write_addr_i = 1;
+	write_data_i = 8'h22;
+	#10
+	write_i = 0;
+	
+	//test read from rs
+	rs_addr_i = 1;
+	#10
+	$display("From addr: %h, just read: %h",rs_addr_i,rs_data_o);
+	$display("Correct output: from addr: 1, just read 22"); 
+	
+	//test the conditional bit. write to cb
+	write_CB_i = 1;
+	cb_data_i = 1;
+	#10
+	
+	//read from conditional bit
+	$display("Condition bit out is: %d", cb_data_o);
+	
+	
+	
 	end
-	
-	
-	
-	
-	
 endmodule

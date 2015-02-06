@@ -12,7 +12,6 @@ alu u0(
 	.rt_i(rt_i),
 	.opcode_i(opcode_i),
 	.alu_result_o(alu_result_o),
-	.set_o(set_o),
 	.zero(zero)
 );
 
