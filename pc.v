@@ -1,16 +1,25 @@
 module pc(
+	input [7:0] pc_i,
 	input start_i,
 	input [7:0] startadd_i,
 	input branchb_i,
 	input branchf_i,
 	input [7:0] target_i,  //PC-relative address not absolute
-	output [7:0] pc_o);
-
-	reg [7:0] prgcount;
-
-	assign  pc_o = (start_i) ? startadd_i : 
-			  (branchf_i) ? (pc_o + 1 + target_i):
-			  (branchb_i) ? (pc_o + 1 - target_i):
-			  (pc_o + 1);
+	output reg [7:0] pc_o);
+	
+always @(*)
+begin
+	if(start_i == 1) 
+		pc_o <= startadd_i;
+		
+	else if(branchf_i == 1) 
+		pc_o <= pc_i + 1 + target_i;
+		
+	else if(branchb_i == 1) 
+		pc_o <= pc_i + 1 - target_i;
+		
+	else 
+		pc_o <= pc_i+ 1;
+end
 
 endmodule
