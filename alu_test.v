@@ -21,46 +21,54 @@ initial
 	rs_i = 8'b01010101;
 	rt_i = 8'b10101010;
 	opcode_i = 3'b000;
-		$display("Result is %d", alu_result_o);
 	#10
+		$display("Result is %d", alu_result_o);
+	
 
 	rs_i = 8'b00001111;
 	rt_i = 8'b11110000;
 	opcode_i = 3'b001;
-		$display("Result is %d", alu_result_o);
 	#10
+		$display("Result is %d", alu_result_o);
+
 
 	rs_i = 8'b00000101;
 	rt_i = 8'b00000010;
 	opcode_i = 3'b010;
-		$display("Result is %d", alu_result_o);
 	#10
+		$display("Result is %d", alu_result_o);
+
 
 	rs_i = 8'b11111110;
 	opcode_i = 3'b011;
-		$display("Result is %d", alu_result_o);
 	#10
+		$display("Result is %d", alu_result_o);
+	
 
 	rs_i = 8'b11111101;
 	rt_i = 8'b11111010;
 	opcode_i = 3'b100;
-		$display("Result is %d", alu_result_o);
 	#10
+		$display("Result is %d", alu_result_o);
+	
 
 	rs_i = 8'b00000001;
 	rt_i = 8'b00000001;
 	opcode_i = 3'b101;
-		$display("Result is %d", set_o);
 	#10
+		$display("Result is %d", set_o);
+	
 
 	rs_i = 8'b11111111;
 	opcode_i = 3'b110;
-		$display("Result is %d", alu_result_o);
 	#10
+		$display("Result is %d", alu_result_o);
+	
 
 	rs_i = 8'b11111111;
 	rt_i = 8'b11111111;
 	opcode_i = 3'b111;
+	#10
 		$display("Result is %d", zero);
 
 	end
