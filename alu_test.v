@@ -22,54 +22,54 @@ initial
 	rt_i = 8'b10101010;
 	opcode_i = 3'b000;
 	#10
-		$display("Result is %d", alu_result_o);
+		$display("Result is %d. Correct: 1", alu_result_o);
 	
 
 	rs_i = 8'b00001111;
 	rt_i = 8'b11110000;
 	opcode_i = 3'b001;
 	#10
-		$display("Result is %d", alu_result_o);
+		$display("Result is %d, Correct: 255", alu_result_o);
 
 
 	rs_i = 8'b00000101;
 	rt_i = 8'b00000010;
 	opcode_i = 3'b010;
 	#10
-		$display("Result is %d", alu_result_o);
+		$display("Result is %d, Correct: 20", alu_result_o);
 
 
 	rs_i = 8'b11111110;
 	opcode_i = 3'b011;
 	#10
-		$display("Result is %d", alu_result_o);
+		$display("Result is %d. Correct: 127", alu_result_o);
 	
 
 	rs_i = 8'b11111101;
 	rt_i = 8'b11111010;
 	opcode_i = 3'b100;
 	#10
-		$display("Result is %d", alu_result_o);
+		$display("Result is %d. Correct: 3", alu_result_o);
 	
 
 	rs_i = 8'b00000001;
 	rt_i = 8'b00000001;
 	opcode_i = 3'b101;
 	#10
-		$display("Result is %d", zero);
+		$display("Result is %d. Correct: 1", zero);
 	
 
 	rs_i = 8'b11111111;
 	opcode_i = 3'b110;
 	#10
-		$display("Result is %d", alu_result_o);
+		$display("Result is %d. Correct: 255", alu_result_o);
 	
 
 	rs_i = 8'b11111111;
 	rt_i = 8'b11111111;
 	opcode_i = 3'b111;
 	#10
-		$display("Result is %d", zero);
+		$display("Result is %d. Correct: 1", zero);
 
 	end
 endmodule
