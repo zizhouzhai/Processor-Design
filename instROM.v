@@ -6,7 +6,7 @@
 // as the address, so you can easily confirm that you are reading address 43
 // because the output is 43.
 module instROM (
-  input[6:0] address_i,
+  input[7:0] address_i,
   output reg[7:0] data_o
   );
  

@@ -1,6 +1,6 @@
 module instROM_test();
 
-reg [6:0] address_i;
+reg [7:0] address_i;
 wire [7:0] data_o;
 
 instROM u1(
