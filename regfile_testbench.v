@@ -84,7 +84,7 @@ initial
 	rt_addr_i = 2;
 	write_i = 1;
 	write_addr_i = 3;
-	write_data_i = 8'h33;
+	write_data_i = 8'h33	;
 	#10
 	write_i = 0;
 	$display("From addr: %h, just read: %h",rs_addr_i,rs_data_o);

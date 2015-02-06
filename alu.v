@@ -4,9 +4,7 @@ module alu(	input[2:0] opcode_i,
 				output reg[7:0] alu_result_o,
 				output reg zero);
 					
-		
-reg signed [7:0] rs_signed;
-reg signed [7:0] rt_signed;
+		reg[7:0] subresult;
 		
 		always@(*)begin
 		
@@ -25,18 +23,11 @@ reg signed [7:0] rt_signed;
 					alu_result_o[7:0] = rs_i[7:0] >> 1;
 				end
 				3'b100: begin	//sub (signed) operation. $Rreg = $r2 - $r5
-					//rs_signed = rs_i;
-					//rt_signed = rt_i;
-					//alu_result_o[7:0] = rs_signed[7:0] - rt_signed[7:0];
 					alu_result_o[7:0] = rs_i[7:0] - rt_i[7:0];
 				end
 				3'b101: begin	//slt operation. if ($r6(rs_i) < $r7(rt_i)),  CB = 1 else CB = 0
-					if((rs_i - rt_i)>= 8'd0)begin
-						zero = 0;
-					end
-					else begin
-						zero = 1;
-					end
+					subresult = (rs_i - rt_i);
+					zero = subresult[7];
 				end
 				3'b110: begin	//absolute operation. $Rreg = abs($Rreg)
 					if (rs_i[7] == 1'b1) begin

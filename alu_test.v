@@ -24,7 +24,7 @@ initial
 	rt_i = 8'b10101010;
 	opcode_i = 3'b000;
 	#10
-		$display("Testing AND. Result is %d. Correct: 1", alu_result_o);
+		$display("Testing AND. Result is %d. Correct: 0", alu_result_o);
 	
 	//test and
 	rs_i = 8'b11111111;
@@ -86,10 +86,23 @@ initial
 	rt_i = 8'b00000001;
 	opcode_i = 3'b101;
 	#10
-		$display("Testing SLL. Result is %d. Correct: 0", zero);
+		$display("Testing SLT. Result is %d. Correct: 0", zero);
+		
+	//test set less than
+	rs_i = 8'b00000001;
+	rt_i = 8'b00000101;
+	opcode_i = 3'b101;
+	#10
+		$display("Testing SLT. Result is %d. Correct: 1", zero);
 	
 	//test abosolute
 	rs_i = 8'b11111111;
+	opcode_i = 3'b110;
+	#10
+		$display("Testing ABSOLUTE.Result is %d. Correct: 1", alu_result_o);
+		
+	//test abosolute
+	rs_i = 8'b00000001;
 	opcode_i = 3'b110;
 	#10
 		$display("Testing ABSOLUTE.Result is %d. Correct: 1", alu_result_o);
@@ -100,6 +113,13 @@ initial
 	opcode_i = 3'b111;
 	#10
 		$display("Testing set equals. Result is %d. Correct: 1", zero);
+		
+	//test set equals when not
+	rs_i = 8'b11111111;
+	rt_i = 8'b01111111;
+	opcode_i = 3'b111;
+	#10
+		$display("Testing set equals. Result is %d. Correct: 0", zero);
 
 	end
 endmodule
