@@ -9,7 +9,7 @@ module alu(	input[2:0] opcode_i,
 			case(opcode_i)
 			
 				3'b000: begin	//and operation. regd = regs & $r7
-					alu_result_o[7:0] = rs_i[7:0] && rt_i[7:0];
+					alu_result_o[7:0] = rs_i[7:0] & rt_i[7:0];
 				end
 				3'b001: begin	//add operation. regd = regs + $r7
 					alu_result_o[7:0] = rs_i[7:0] + rt_i[7:0];

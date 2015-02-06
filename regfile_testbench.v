@@ -45,10 +45,11 @@ end
 initial 
 	begin
 	
+	//REGISTER TESTS
 	//test write.
 	write_i = 1;
 	write_addr_i = 0;
-	write_data_i = 8'h11;
+	write_data_i = 8'h00;
 	#10
 	write_i = 0;
 	
@@ -56,12 +57,12 @@ initial
 	rt_addr_i = 0;
 	#10
 	$display("From addr: %h, just read: %h",rt_addr_i,rt_data_o);
-	$display("Correct output: from addr: 0, just read 11"); 
+	$display("Correct output: from addr: 0, just read 00"); 
 	
 	//test write again with diff addr.
 	write_i = 1;
 	write_addr_i = 1;
-	write_data_i = 8'h22;
+	write_data_i = 8'h11;
 	#10
 	write_i = 0;
 	
@@ -69,16 +70,28 @@ initial
 	rs_addr_i = 1;
 	#10
 	$display("From addr: %h, just read: %h",rs_addr_i,rs_data_o);
-	$display("Correct output: from addr: 1, just read 22"); 
+	$display("Correct output: from addr: 1, just read 11"); 
 	
+	
+	// CONDITION BIT TESTS
 	//test the conditional bit. write to cb
 	write_CB_i = 1;
 	cb_data_i = 1;
 	#10
+	write_CB_i = 0;
 	
 	//read from conditional bit
 	$display("Condition bit out is: %d", cb_data_o);
 	
+	//write cb to 0.
+	write_CB_i = 1;
+	cb_data_i = 10;
+	#10
+	write_CB_i = 0;
+	
+	//read from conditional bit
+	$display("Condition bit out is: %d", cb_data_o);
+
 	
 	
 	end
