@@ -56,7 +56,7 @@ initial
 	rt_i = 8'b00000001;
 	opcode_i = 3'b101;
 	#10
-		$display("Result is %d", set_o);
+		$display("Result is %d", zero);
 	
 
 	rs_i = 8'b11111111;
