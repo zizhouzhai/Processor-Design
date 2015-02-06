@@ -1,6 +1,5 @@
 module regfile
   (input clk_i,
-   input reset_i,
    input write_i,
 	input write_CB_i,
 	input cb_data_i,

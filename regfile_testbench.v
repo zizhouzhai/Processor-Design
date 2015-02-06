@@ -7,7 +7,6 @@ wire[7:0] rt_data_o;
 
 // create input regs
 reg clk_i;
-reg reset_i;
 reg write_i;
 reg write_CB_i;
 reg cb_data_i;
@@ -19,7 +18,6 @@ reg [2:0] rs_addr_i;
 //instance of the regfile to test.
 regfile test_regfile(
 .clk_i			(clk_i),
-.reset_i			(reset_i),
 .write_i			(write_i),
 .write_CB_i		(write_CB_i),
 .cb_data_i		(cb_data_i),
@@ -71,6 +69,26 @@ initial
 	#10
 	$display("From addr: %h, just read: %h",rs_addr_i,rs_data_o);
 	$display("Correct output: from addr: 1, just read 11"); 
+	
+	//test read and write then same time
+	rs_addr_i = 0;
+	write_i = 1;
+	write_addr_i = 2;
+	write_data_i = 8'h22;
+	#10
+	write_i = 0;
+	$display("From addr: %h, just read: %h",rs_addr_i,rs_data_o);
+	
+	//read from 2 registers and write to 1 in same cycle.
+	rs_addr_i = 1;
+	rt_addr_i = 2;
+	write_i = 1;
+	write_addr_i = 3;
+	write_data_i = 8'h33;
+	#10
+	write_i = 0;
+	$display("From addr: %h, just read: %h",rs_addr_i,rs_data_o);
+
 	
 	
 	// CONDITION BIT TESTS
