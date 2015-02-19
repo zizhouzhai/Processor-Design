@@ -47,9 +47,26 @@ initial
 		$display("\nTesting the start address:\n");
 		$display("Current PC should be 00100110, PC is %b\n", pc_o);
 
-
+	pc_i = pc_o;
+	branchb_i = 0;
+	#10
 		$display("\nTesting the regular next PC:\n");
-		$display("Current PC should be ?????, PC is %b\n", pc_o);
+		$display("Current PC should be 00100111, PC is %b\n", pc_o);
+	
+	pc_i = 8'b00000000;
+	branchf_i = 1;
+	target_i = 8'b11111110;
+	#10
+		$display("\nTesting branching to highest that pc can go:\n");
+		$display("Current PC should be 11111111, PC is %b\n", pc_o);
+	
+	pc_i = 8'b11111110;
+	branchb_i = 1;
+	branchf_i = 0;
+	target_i = 8'b11111111;
+	#10
+		$display("\nTesting branching back with highest target:\n");
+		$display("Current PC should be 00000000, PC is %b\n", pc_o);
 	end
 
 
