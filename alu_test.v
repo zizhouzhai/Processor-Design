@@ -94,9 +94,17 @@ initial
 	opcode_i = 3'b101;
 	#10
 		$display("Testing SLT. Result is %d. Correct: 1", zero);
+		
+	//test set less than
+	rs_i = 8'b10000000;
+	rt_i = 8'b01111111;
+	opcode_i = 3'b101;
+	#10
+		$display("Testing SLT. Result is %d. Correct: 0", zero);
+		
 	
 	//test abosolute
-	rs_i = 8'b11111111;
+	rs_i = 8'b10000000;
 	opcode_i = 3'b110;
 	#10
 		$display("Testing ABSOLUTE.Result is %d. Correct: 1", alu_result_o);

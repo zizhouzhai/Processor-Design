@@ -4,7 +4,9 @@ module alu(	input[2:0] opcode_i,
 				output reg[7:0] alu_result_o,
 				output reg zero);
 					
-		reg[7:0] subresult;
+		reg[8:0] subresult;
+		reg[8:0] rs_extended;
+		reg[8:0] rt_extended;
 		
 		always@(*)begin
 		
@@ -26,8 +28,10 @@ module alu(	input[2:0] opcode_i,
 					alu_result_o[7:0] = rs_i[7:0] - rt_i[7:0];
 				end
 				3'b101: begin	//slt operation. if ($r6(rs_i) < $r7(rt_i)),  CB = 1 else CB = 0
+					rs_extended = {1'b0,rs_i};
+					rt_extended = {1'b0,rt_i};
 					subresult = (rs_i - rt_i);
-					zero = subresult[7];
+					zero = subresult[8];
 				end
 				3'b110: begin	//absolute operation. $Rreg = abs($Rreg)
 					if (rs_i[7] == 1'b1) begin
