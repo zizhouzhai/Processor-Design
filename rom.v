@@ -110,6 +110,77 @@ begin
 	rom[92] = 8'b10011011; //store	$r3	
 	rom[93] = 8'b10001000; //halt
 
+//program 2 String match
+		set	6
+	rom[94] = 8'b10010001; //load	$r1				#$r1 = $r15 = [6]
+
+	rom[95] = 8'b11000000; //set 	0
+	rom[96] = 8'b01100111; //add	$r4,	$r7			#$r4 = 0
+	rom[97] = 8'b01110111; //add	$r6,	$r7			#$r6 = 0
+	rom[98] = 8'b01000111; //add	$r0,	$r7			#$r0 = 0
+	rom[99] = 8'b01011111; //add	$r3,	$r7			#$r0 = 0
+
+	rom[100] = 8'b11011111; //set	31				#$r3 = 31
+	rom[101] = 8'b01011011; //add	$r3,	$r3
+
+//LOADBYTE:
+	rom[102] = 8'b11000001; //set	1				#$r3 = $r3 + 1
+	rom[103] = 8'b01011011; //add	$r3,	$r3
+
+	rom[104] = 8'b11000000; //set	0
+	rom[105] = 8'b01000111; //add	$r0,	$r7			#$r0 = 0
+
+
+	rom[106] = 8'b11011000; //set	24				#change
+	rom[107] = 8'b01111111; //add	$r7, 	$r7			#$r7 = 24 + 24 = 48
+	rom[108] = 8'b01111111; //add	$r7, 	$r7			#$r7 = 48 + 48 = 96
+	rom[109] = 8'b10101011; //seq	$r3				#chec, if $r3 == 96
+	rom[110] = 8'b11011000; //set	24				#jump forward 29 instructions
+	rom[111] = 8'b11110111; //branch		$r7			#if finished going through 64 bytes
+						//#if $r3 == 32+64 go to end
+
+	rom[112] = 8'b11000000; //set	0				#$r7 = 0
+	rom[113] = 8'b01111011; //add	$r7,$r3				$r7 = $r3
+	rom[114] = 8'b10010010; //load	$r2				#load	$r2, $r3
+
+//COMPARE:
+	rom[115] = 8'b11001111; //set	15				#and	$r14, $r2, 15
+	rom[116] = 8'b00111010; //and	$r7,	$r2			#get the lower 4 bits of the byte store in r7
+
+	rom[117] = 8'b10101001; //seq	$r1				#check if $r1 same as $r7
+	rom[118] = 8'b11001010; //set	10				#jump foward 10
+	rom[119] = 8'b11110111; //branch		$r7			#(go to match)
+
+	rom[120] = 8'b11000001; //set	1				#srl	$r2, $r2, 1
+	rom[121] = 8'b11101010; //srl	$r2
+						//#set1 from above
+	rom[122] = 8'b01000000; //add	$r0,	 $r0			#inc $r0
+
+	rom[123] = 8'b11000101; //set	5					
+	rom[124] = 8'b10101000; //seq	$r0				#check if $r0 == 5
+	rom[125] = 8'b11011001; //set	25				#jump back 28 to LOADBYTE
+	rom[126] = 8'b10110111; //branchb	$r7			#if $r6 is 5, do next byte
+
+	rom[127] = 8'b10101111; //seq	$r7				
+	rom[128] = 8'b11001111; //set	15
+	rom[129] = 8'b10110111; //branchb	$r7			#jump to compare
+
+//MATCH:
+	rom[130] = 8'b11000001; //set	1				#add	$r4, $r4, 1
+	rom[131] = 8'b01000100; //add	$r4,	$r4
+			
+	rom[132] = 8'b10101111; //seq	$r7				#beq	$r0, $r0, LOADBYTE
+
+
+	rom[133] = 8'b11010001; //set 	17
+	rom[134] = 8'b01111111; //add	$r7,	$r7			#jump 34
+	rom[135] = 8'b11110111; //branch	b	$r7			#(go to LOADBYTE)
+
+//END:
+	rom[136] = 8'b11000111; //set	7				#store	$r4, [7]
+	rom[137] = 8'b10011100; //store	$r4
+	
+
 	
 
 end
