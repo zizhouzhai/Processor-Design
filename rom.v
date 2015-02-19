@@ -174,14 +174,91 @@ begin
 
 	rom[134] = 8'b11010001; //set 	17
 	rom[135] = 8'b01111111; //add	$r7,	$r7			#jump 34
-	rom[136] = 8'b11110111; //branch	b	$r7			#(go to LOADBYTE)
+	rom[136] = 8'b10110111; //branchb	$r7			#(go to LOADBYTE)
 
 //END:
 	rom[137] = 8'b11000111; //set	7				#store	$r4, [7]
 	rom[138] = 8'b10011100; //store	$r4
 	
+//-------------------program 3: Closest pair-----------
+	rom[] = 8'b11000000; //set		0			#r4 =  0
+	rom[] = 8'b01100111; //add		$r4,	$r7
+	 
+	rom[] = 8'b11010000; //set    		16;			#set i = 0
+	rom[] = 8'b01111111; //add		$r7, 	$r7
+	rom[] = 8'b01111111; //add		$r7, 	$r7
+	rom[] = 8'b01000111; //add		$r0,	$r7		#$r0 = 128
+	rom[] = 8'b01011111; //add		$r3,     $r7	 	#$r3 = 256set shortest = 2^8
 
+//OUTERLOOP:
+
+	rom[] = 8'b11010011; //set		19
+	rom[] = 8'b10101100; //seq		$r4
+	rom[] = 8'b01110111; //add		$r6,	$r7
+	rom[] = 8'b11000001; //set		1
+	rom[] = 8'b01110110; //add		$r6, 	$r6	#set 39
+	rom[] = 8'b11110110; //branch $r6;		#end of outer for loop forward 39
+
+	rom[] = 8'b11000000; //set		0
+	rom[] = 8'b01000111; //add		$r0,	$r7	#move $r0 to $r
+	rom[] = 8'b10010010; //load		$r2		#load [$r2]
+
+	rom[] = 8'b11000001; //set		1;			# inc i
+	rom[] = 8'b01000000; //add		$r0,	$r0
+//INNERLOOP:
+    rom[] = 8'b11000000; //set		0			#store incremented i to k
+	rom[] = 8'b01001000; //add		$r1,	$r0
+
+	rom[] = 8'b11010000; //set    		16;			#set i = 0
+	rom[] = 8'b01111111; //add		$r7, 	$r7
+	rom[] = 8'b01111111; //add		$r7, 	$r7
+	rom[] = 8'b01110111; //add		$r6,	$r7		#$r6 = 128	
+	rom[] = 8'b11010100; //set		20
+	rom[] = 8'b01110110; //add		$r6, 	$r6
+
+	rom[] = 8'b11000000; //set		0
+	rom[] = 8'b01111110; //add		$r7,	$r6
+
+	rom[] = 8'b10101001; //seq		$r1
+	rom[] = 8'b11011000; //set		24			#go back 21 to OUTERLOOP
+	rom[] = 8'b10110111; //branchb	$r7				#if reached the end, reset
 	
+	rom[] = 8'b11000000; //set 		0			#load [k]
+	rom[] = 8'b01111001; //add		$r7,	$r1
+	rom[] = 8'b10010101; //load		$r5;
+
+
+	rom[] = 8'b11111110; //sub		$r6			$r6 = $r2 - $r5 ( difference)
+	rom[] = 8'b10100110; //absolute		$r6;			#take absolute value of subtraction???
+	
+	rom[] = 8'b11000001; //set		1;			#inc k
+	rom[] = 8'b01001001; //add		$r1,	$r1;
+
+	rom[] = 8'b11000000; //set		0;
+	rom[] = 8'b01111011; //add		$r7,	$r3
+	rom[] = 8'b10000000; //slt					#branch less than go to IF
+	rom[] = 8'b11000011; //set		3			#(GOTOIF)
+	rom[] = 8'b11110111; //branch		$r7
+
+	rom[] = 8'b10101111; //seq		$r7
+	rom[] = 8'b11011011; //set		27			#go to innerlooop
+	rom[] = 8'b10110111; //branchb	$r7			#else re-interate loop
+
+//IF:
+	rom[] = 8'b11000000; //set		0	
+	rom[] = 8'b01011110; //add		$r3,	$r6			#$r3 = new shortest = r6
+	rom[] = 8'b10101111; //seq		$r7				#jump to innerloop
+	rom[] = 8'b11010001; //set		17				#32
+	rom[] = 8'b01111111; //add		$r7,	$r7			#r7 = $r7 +$r7 = 34
+	rom[] = 8'b10110111; //branchb	$r7		
+
+//END:
+	//set 0
+	//add $r7, $r7
+	rom[] = 8'b; //set    31;
+
+
+	return		$r3;
 
 end
 
