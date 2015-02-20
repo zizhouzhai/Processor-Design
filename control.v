@@ -12,7 +12,8 @@ module control(input[7:0] instruction_i,
 					output memwrite_o,
 					output memread_o,
 					output branchb_o,
-					output branchf_o
+					output branchf_o,
+					output done_o
 					);
 					
 		reg[2:0] alucontrol;
@@ -27,6 +28,7 @@ module control(input[7:0] instruction_i,
 		reg memread;
 		reg branchb;
 		reg branchf;
+		reg done;
 		
 		assign alucontrol_o = alucontrol;
 		assign regwrite_o = regwrite;
@@ -40,6 +42,7 @@ module control(input[7:0] instruction_i,
 		assign memread_o = memread;
 		assign branchb_o = branchb;
 		assign branchf_o = branchf;
+		assign done_o = done;
 					
 		always@(posedge clock_i)begin
 		
@@ -160,6 +163,7 @@ module control(input[7:0] instruction_i,
 					memwrite <= 1'b0;
 					branchb <= 1'b0;
 					branchf <= 1'b0;
+					done <= 1'b1;
 				end
 				5'b10010: begin
 					$display("load instruction");
