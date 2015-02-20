@@ -120,80 +120,71 @@ always @(*)
 
 //--------------------program 2 String match--------------------------
 	93: data_o = 8'b11000110; //set	6
-	94: data_o = 8'b10010001; //load	$r1				#$r1 = $r15 = [6]
-
+	94: data_o = 8'b10010001; //load	$r1				
 	95: data_o = 8'b11000000; //set 	0
-	96: data_o = 8'b01100111; //add	$r4,	$r7			#$r4 = 0
-	97: data_o = 8'b01110111; //add	$r6,	$r7			#$r6 = 0
-	98: data_o = 8'b01000111; //add	$r0,	$r7			#$r0 = 0
-	99: data_o = 8'b01011111; //add	$r3,	$r7			#$r0 = 0
+	96: data_o = 8'b01000111; //add	$r0,	$r7			
+	97: data_o = 8'b11000111; //set		7
+	98: data_o = 8'b10011000; //store r0			
+	99: data_o = 8'b01011000; //add	$r3,	$r0		
+	100: data_o = 8'b11010101; //set	21			
+	101: data_o = 8'b01110000; //add	$r6,	$r0
+	102: data_o = 8'b11001001; //set	9				
+	103: data_o = 8'b01100000; //add	$r4,	$r0
+	104: data_o = 8'b11010010; //set	18
+	105: data_o = 8'b01111111; //add	$r7,	$r7			
+	106: data_o = 8'b01101111; //add	$r5	$r7				
 
-	100: data_o = 8'b11011111; //set	31				#$r3 = 31
-	101: data_o = 8'b01011011; //add	$r3,	$r3
+//loadbyte
+	107: data_o = 8'b11000001; //set 1	
+	108: data_o = 8'b01011011; //add	$r3, 	$r3		
+	109: data_o = 8'b11000000; //set	0				
+	110: data_o = 8'b01000111; //add 	r0	r7
+	111: data_o = 8'b01111101; //add	r7	r5
+	112: data_o = 8'b10101011; //seq	r3				
+	113: data_o = 8'b11011011; //set	27
+	114: data_o = 8'b11110111; //branch 	r7
+	115: data_o = 8'b11000000; //set	0				
+	116: data_o = 8'b00111011; //and	$r7,	$r3		
+	117: data_o = 8'b10010010; //load	r2				
 
-//LOADBYTE:
-	102: data_o = 8'b11000001; //set	1				#$r3 = $r3 + 1
-	103: data_o = 8'b01011011; //add	$r3,	$r3
+//compare
+	118: data_o = 8'b11001111; //set	15			
+	119: data_o = 8'b00111010; //and	r7	r2		
+	120: data_o = 8'b10101001; //seq	r1				
+	121: data_o = 8'b11110100; //branch	r4
+	122: data_o = 8'b11000001; //set 	1
 
-	104: data_o = 8'b11000000; //set	0
-	105: data_o = 8'b01000111; //add	$r0,	$r7			#$r0 = 0
+	123: data_o = 8'b11101010; //srl	r2					
+	124: data_o = 8'b01000000; //add	r0	r0			
+	125: data_o = 8'b11000101; //set	5
+	126: data_o = 8'b10101000; //seq	r0
 
+	127: data_o = 8'b10110110; //branchb	r6				
+	128: data_o = 8'b10101111; //seq	r7
+	129: data_o = 8'b11001101; //set	13
+	130: data_o = 8'b10110111; //branchb	r7
 
-	106: data_o = 8'b11011000; //set	24				#change
-	107: data_o = 8'b01111111; //add	$r7, 	$r7			#$r7 = 24 + 24 = 48
-	108: data_o = 8'b01111111; //add	$r7, 	$r7			#$r7 = 48 + 48 = 96
-	109: data_o = 8'b10101011; //seq	$r3				#chec, if $r3 == 96
-	110: data_o = 8'b11011000; //set	24				#jump forward 29 instructions
-	111: data_o = 8'b11110111; //branch		$r7			#if finished going through 64 bytes
-						//#if $r3 == 32+64 go to end
+//match
+	131: data_o = 8'b11000111; //set	7
+	132: data_o = 8'b10010110; //load	r6
+	133: data_o = 8'b11000001; //set 	1
+	134: data_o = 8'b01110110; //add	$r6,	$r6			
+	135: data_o = 8'b11000111; //set	7
 
-	112: data_o = 8'b11000000; //set	0				#$r7 = 0
-	113: data_o = 8'b01111011; //add	$r7,$r3				$r7 = $r3
-	114: data_o = 8'b10010010; //load	$r2				#load	$r2, $r3
+	136: data_o = 8'b10011110; //store 	r6			
+	137: data_o = 8'b10101111; //seq	r7
+	138: data_o = 8'b11010001; //set	17
+	139: data_o = 8'b01111111; //add	r7 	r7
+	140: data_o = 8'b10110111; //branchb 	r7
 
-//COMPARE:
-	115: data_o = 8'b11001111; //set	15				#and	$r14, $r2, 15
-	116: data_o = 8'b00111010; //and	$r7,	$r2			#get the lower 4 bits of the byte store in r7
-
-	117: data_o = 8'b10101001; //seq	$r1				#check if $r1 same as $r7
-	118: data_o = 8'b11001010; //set	10				#jump foward 10
-	119: data_o = 8'b11110111; //branch		$r7			#(go to match)
-
-	120: data_o = 8'b11000001; //set	1				#srl	$r2, $r2, 1
-	121: data_o = 8'b11101010; //srl	$r2
-						//#set1 from above
-	122: data_o = 8'b01000000; //add	$r0,	 $r0			#inc $r0
-
-	123: data_o = 8'b11000101; //set	5					
-	124: data_o = 8'b10101000; //seq	$r0				#check if $r0 == 5
-	125: data_o = 8'b11011001; //set	25				#jump back 28 to LOADBYTE
-	126: data_o = 8'b10110111; //branchb	$r7			#if $r6 is 5, do next byte
-
-	127: data_o = 8'b10101111; //seq	$r7				
-	128: data_o = 8'b11001111; //set	15
-	129: data_o = 8'b10110111; //branchb	$r7			#jump to compare
-
-//MATCH:
-	130: data_o = 8'b11000001; //set	1				#add	$r4, $r4, 1
-	131: data_o = 8'b01000100; //add	$r4,	$r4
-			
-	132: data_o = 8'b10101111; //seq	$r7				#beq	$r0, $r0, LOADBYTE
-
-
-	133: data_o = 8'b11010001; //set 	17
-	134: data_o = 8'b01111111; //add	$r7,	$r7			#jump 34
-	135: data_o = 8'b10110111; //branchb	$r7			#(go to LOADBYTE)
-
-//END:
-	136: data_o = 8'b11000111; //set	7				#store	$r4, [7]
-	137: data_o = 8'b10011100; //store	$r4
-	138: data_o = 8'b10001000; //halt
+//end
+	141: data_o = 8'b10001000; //halt
 	
 //-------------------program 3: Closest pair-----------
-	139: data_o = 8'b11000000; //set		0			#r4 =  0
-	140: data_o = 8'b01100111; //add		$r4,	$r7
+//	139: data_o = 8'b11000000; //set		0			#r4 =  0
+//	140: data_o = 8'b01100111; //add		$r4,	$r7
 	 
-	141: data_o = 8'b11010000; //set    		16;			#set i = 0
+//	141: data_o = 8'b11010000; //set    		16;			#set i = 0
 	142: data_o = 8'b01111111; //add		$r7, 	$r7
 	143: data_o = 8'b01111111; //add		$r7, 	$r7
 	144: data_o = 8'b01000111; //add		$r0,	$r7		#$r0 = 128
