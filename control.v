@@ -16,7 +16,7 @@ module control(input[7:0] instruction_i,
 					output done_o
 					);
 					
-		reg[2:0] alucontrol;
+		reg[3:0] alucontrol;
 		reg regwrite;
 		reg CBwrite;
 		reg[2:0] write_addr;
@@ -50,7 +50,7 @@ module control(input[7:0] instruction_i,
 			
 				5'b00???: begin		
 					$display("and instruction");
-					alucontrol <= 4'b0000;
+					alucontrol <= 4'b0000;	
 					regwrite <= 1'b1;
 					CBwrite <= 1'b0;
 					write_addr <= instruction_i[5:3];
