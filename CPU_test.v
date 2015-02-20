@@ -15,26 +15,23 @@ lab3 test_lab3(
 
 always
 begin
-	#50
+	#100
 	clock_i = 1'b1;
-	#50
+	#100
 	clock_i = 1'b0;
 end
 
 initial
 begin
-
 	$display("starting first");
 	start_addr = 8'd0;
 	start_i = 1;
-	#100
+	#200
 	start_i = 0;
 	wait(done == 1);
 	
 	$display("finished first");
-	start_i = 1;
-	
-	wait(done == 0);
+	$stop;
 	
 	/*start_addr = 8'd93;
 	start_i = 1;
