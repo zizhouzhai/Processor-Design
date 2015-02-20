@@ -1,5 +1,6 @@
 module pc(
 	input [7:0] pc_i,
+	input clock_i,
 	input start_i,
 	input [7:0] startadd_i,
 	input branchb_i,
@@ -7,7 +8,7 @@ module pc(
 	input [7:0] target_i,  //PC-relative address not absolute
 	output reg [7:0] pc_o);
 	
-always @(*)
+always @(posedge clock_i)
 begin
 	if(start_i == 1) 
 		pc_o <= startadd_i;
