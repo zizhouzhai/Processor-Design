@@ -178,101 +178,101 @@ always @(*)
 	137: data_o = 8'b11000111; //set	7
 
 	138: data_o = 8'b10011110; //store 	r6			
-	//139: data_o = 8'b10101111; //seq	r7
-	//140: data_o = 8'b11001001; //set	9
-	//141: data_o = 8'b01111111; //add	r7 	r7 9 + 9
-	//142: data_o = 8'b01111111; //add 	r7 	r7 18 + 18
-	//143: data_o = 8'b10110111; //branchb 	r7	branchb 34. needs to be 35
+	139: data_o = 8'b10101111; //seq	r7
+	140: data_o = 8'b11001001; //set	9
+	141: data_o = 8'b01111111; //add	r7 	r7 9 + 9
+	142: data_o = 8'b01111111; //add 	r7 	r7 18 + 18
+	143: data_o = 8'b10110111; //branchb 	r7	branchb 34. needs to be 35
 
 //end
-	//144: data_o = 8'b10001000; //halt
+	144: data_o = 8'b10001000; //halt
 	
 //-------------------program 3: Closest pair-----------
-	139: data_o = 8'b11010000; //set		16			
-	140: data_o = 8'b01111111; //add		$r7,	$r7
-	141: data_o = 8'b01111111; //add		$r7,         $r7		  
-	142: data_o = 8'b01100111; //add		$r4,	$r7
-	143: data_o = 8'b11010011; //set		19	
-	144: data_o = 8'b01100100; //add		$r4,	$r4
+	145: data_o = 8'b11010000; //set		16			
+	146: data_o = 8'b01111111; //add		$r7,	$r7
+	147: data_o = 8'b01111111; //add		$r7,         $r7		  
+	148: data_o = 8'b01100111; //add		$r4,	$r7
+	149: data_o = 8'b11010011; //set		19	
+	150: data_o = 8'b01100100; //add		$r4,	$r4
 
-	145: data_o = 8'b11001000; //set		16			#r4 = 
-	146: data_o = 8'b01111111; //add    		$r7,         $r7			#set i = 0
-	147: data_o = 8'b01111111; //add		$r7, 	$r7
-	148: data_o = 8'b01111111; //add		$r7, 	$r7
-	149: data_o = 8'b01000111; //add		$r0,	$r7		#$r0 = 128
-	150: data_o = 8'b01011111; //add		$r3,         $r7	 	#$r3 = 255set shortest = 2^8
+	151: data_o = 8'b11001000; //set		16			#r4 = 
+	152: data_o = 8'b01111111; //add    		$r7,         $r7			#set i = 0
+	153: data_o = 8'b01111111; //add		$r7, 	$r7
+	154: data_o = 8'b01111111; //add		$r7, 	$r7
+	155: data_o = 8'b01000111; //add		$r0,	$r7		#$r0 = 128
+	156: data_o = 8'b01011111; //add		$r3,         $r7	 	#$r3 = 255set shortest = 2^8
 
 //OUTERLOOP:
 
-	151: data_o = 8'b11000000; //set		0
-	152: data_o = 8'b01111100; //add		$r7,         $r4
-	153: data_o = 8'b10101000; //seq                        $r0
+	157: data_o = 8'b11000000; //set		0
+	158: data_o = 8'b01111100; //add		$r7,         $r4
+	159: data_o = 8'b10101000; //seq                        $r0
 	
-	154: data_o = 8'b11000000;
-	155: data_o = 8'b01110111;
+	160: data_o = 8'b11000000;
+	161: data_o = 8'b01110111;
 
-	156: data_o = 8'b11010011; //set		19
-	157: data_o = 8'b01110111; //add		$r6, 	$r7	#set 38
-	158: data_o = 8'b11000011; //set		3;
-	159: data_o = 8'b01110110; //add		$r6, 	$r6	#set 41
-	160: data_o = 8'b11110110; //branch $r6;		#end of outer for loop forward 39
+	162: data_o = 8'b11010011; //set		19
+	163: data_o = 8'b01110111; //add		$r6, 	$r7	#set 38
+	164: data_o = 8'b11000011; //set		3;
+	165: data_o = 8'b01110110; //add		$r6, 	$r6	#set 41
+	166: data_o = 8'b11110110; //branch $r6;		#end of outer for loop forward 39
 
-	161: data_o = 8'b11000000; //set		0
-	162: data_o = 8'b01111000; //add		$r7,	$r0	#move $r0 to $r
-	163: data_o = 8'b10010010; //load		$r2		#load [$r2]
+	167: data_o = 8'b11000000; //set		0
+	168: data_o = 8'b01111000; //add		$r7,	$r0	#move $r0 to $r
+	169: data_o = 8'b10010010; //load		$r2		#load [$r2]
 
-	164: data_o = 8'b11000001; //set		1;			# inc i
-	165: data_o = 8'b01000000; //add		$r0,	$r0
+	170: data_o = 8'b11000001; //set		1;			# inc i
+	171: data_o = 8'b01000000; //add		$r0,	$r0
 
 //INNERLOOP:
-   166: data_o = 8'b11000000; //set		0			#store incremented i to k
-	167: data_o = 8'b01001000; //add		$r1,	$r0
+   172: data_o = 8'b11000000; //set		0			#store incremented i to k
+	173: data_o = 8'b01001000; //add		$r1,	$r0
     
-	168: data_o = 8'b11000000;
-	169: data_o = 8'b01110111;
-	170: data_o = 8'b11010000; //set    		16;			#set i = 0
-	171: data_o = 8'b01111111; //add		$r7, 	$r7
-	172: data_o = 8'b01111111; //add		$r7, 	$r7
-	173: data_o = 8'b01110111; //add		$r6,	$r7		#$r6 = 128	
-	174: data_o = 8'b11010100; //set		20
-	175: data_o = 8'b01110110; //add		$r6, 	$r6
-	176: data_o = 8'b11000000; //set		0
-	177: data_o = 8'b01111110; //add		$r7,	$r6
-	178: data_o = 8'b10101001; //seq		$r1
-	179: data_o = 8'b11011110; //set		30			#go back 21 to OUTERLOOP
-	180: data_o = 8'b10110111; //branchb	               $r7				#if reached the end, reset
-	181: data_o = 8'b11000000; //set 		0			#load [k]
-	182: data_o = 8'b01111001; //add		$r7,	$r1
-	183: data_o = 8'b10010101; //load		$r5;
-	184: data_o = 8'b11111110; //sub		$r6			$r6 = $r2 - $r5 ( difference)
-	185: data_o = 8'b10100110; //absolute		$r6;			#take absolute value of subtraction???
-	186: data_o = 8'b11000001; //set		1;			#inc k
-	187: data_o = 8'b01001001; //add		$r1,	$r1;
-	188: data_o = 8'b11000000; //set		0;
-	189: data_o = 8'b01111011; //add		$r7,	$r3
-	190: data_o = 8'b10000000; //slt					#branch less than go to IF
-	191: data_o = 8'b11000011; //set		3			#(GOTOIF)
-	192: data_o = 8'b11110111; //branch		$r7
-	193: data_o = 8'b10101111; //seq		$r7
-	194: data_o = 8'b11011100; //set		29			#go to innerlooop
-	195: data_o = 8'b10110111; //branchb	        $r7			#else re-interate loop
+	174: data_o = 8'b11000000;
+	175: data_o = 8'b01110111;
+	176: data_o = 8'b11010000; //set    		16;			#set i = 0
+	177: data_o = 8'b01111111; //add		$r7, 	$r7
+	178: data_o = 8'b01111111; //add		$r7, 	$r7
+	179: data_o = 8'b01110111; //add		$r6,	$r7		#$r6 = 128	
+	180: data_o = 8'b11010100; //set		20
+	181: data_o = 8'b01110110; //add		$r6, 	$r6
+	182: data_o = 8'b11000000; //set		0
+	183: data_o = 8'b01111110; //add		$r7,	$r6
+	184: data_o = 8'b10101001; //seq		$r1
+	185: data_o = 8'b11011110; //set		30			#go back 21 to OUTERLOOP
+	186: data_o = 8'b10110111; //branchb	               $r7				#if reached the end, reset
+	187: data_o = 8'b11000000; //set 		0			#load [k]
+	188: data_o = 8'b01111001; //add		$r7,	$r1
+	189: data_o = 8'b10010101; //load		$r5;
+	190: data_o = 8'b11111110; //sub		$r6			$r6 = $r2 - $r5 ( difference)
+	191: data_o = 8'b10100110; //absolute		$r6;			#take absolute value of subtraction???
+	192: data_o = 8'b11000001; //set		1;			#inc k
+	193: data_o = 8'b01001001; //add		$r1,	$r1;
+	194: data_o = 8'b11000000; //set		0;
+	195: data_o = 8'b01111011; //add		$r7,	$r3
+	196: data_o = 8'b10000000; //slt					#branch less than go to IF
+	197: data_o = 8'b11000011; //set		3			#(GOTOIF)
+	198: data_o = 8'b11110111; //branch		$r7
+	199: data_o = 8'b10101111; //seq		$r7
+	200: data_o = 8'b11011100; //set		29			#go to innerlooop
+	201: data_o = 8'b10110111; //branchb	        $r7			#else re-interate loop
 
 //IF:
-	196: data_o = 8'b11000000; //set		0	
-	197: data_o = 8'b01011110; //add		$r3,	$r6			#$r3 = new shortest = r6
-	198: data_o = 8'b10101111; //seq		$r7				#jump to innerloop
-	199: data_o = 8'b11010001; //set		17				#32
-	200: data_o = 8'b01111111; //add		$r7,	$r7			#r7 = $r7 +$r7 = 34
-	201: data_o = 8'b10110111; //branchb	$r7		
+	202: data_o = 8'b11000000; //set		0	
+	203: data_o = 8'b01011110; //add		$r3,	$r6			#$r3 = new shortest = r6
+	204: data_o = 8'b10101111; //seq		$r7				#jump to innerloop
+	205: data_o = 8'b11010001; //set		17				#32
+	206: data_o = 8'b01111111; //add		$r7,	$r7			#r7 = $r7 +$r7 = 34
+	207: data_o = 8'b10110111; //branchb	$r7		
 
 //END:
-	202: data_o = 8'b11011110; //set		30
-	203: data_o = 8'b01111111; //add		$r7,	$r7			#r7 = r7 + r7 = 30 + 30= 60
-	204: data_o = 8'b01110111; //add		$r6,	$r7			#r7 = r7 + r7 = 60 + 60 = 120
-	205: data_o = 8'b11000111; //set		7
-	206: data_o = 8'b01111110; //add		$r7,	$r6			#r7 = r6 + 7 = 127
-	207: data_o = 8'b10011011; //store		$r3;				#[r7] = $r3 
-	208: data_o = 8'b10001000; //halt
+	208: data_o = 8'b11011110; //set		30
+	209: data_o = 8'b01111111; //add		$r7,	$r7			#r7 = r7 + r7 = 30 + 30= 60
+	210: data_o = 8'b01110111; //add		$r6,	$r7			#r7 = r7 + r7 = 60 + 60 = 120
+	211: data_o = 8'b11000111; //set		7
+	212: data_o = 8'b01111110; //add		$r7,	$r6			#r7 = r6 + 7 = 127
+	213: data_o = 8'b10011011; //store		$r3;				#[r7] = $r3 
+	214: data_o = 8'b10001000; //halt
 
 
 	default: data_o = 8'hff; // don’t forget this!
