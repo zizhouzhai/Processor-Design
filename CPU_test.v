@@ -20,7 +20,6 @@ begin
 	clock_i = 1'b1;
 	dynamcount = dynamcount + 1;
 	#200
-	clock_i = 1'b0;
 end
 
 initial
