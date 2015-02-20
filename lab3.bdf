@@ -276,7 +276,7 @@ agreement for further details.
 	(annotation_block (parameter)(rect 1352 136 1584 168))
 )
 (symbol
-	(rect 184 160 392 240)
+	(rect 184 200 392 280)
 	(text "instROM" (rect 5 0 60 15)(font "Arial" ))
 	(text "inst5" (rect 8 64 39 79)(font "Arial" ))
 	(port
@@ -635,11 +635,6 @@ agreement for further details.
 	(bus)
 )
 (connector
-	(pt 392 152)
-	(pt 392 192)
-	(bus)
-)
-(connector
 	(pt 128 144)
 	(pt -96 144)
 	(bus)
@@ -652,21 +647,6 @@ agreement for further details.
 (connector
 	(pt -72 200)
 	(pt -96 200)
-	(bus)
-)
-(connector
-	(pt 184 192)
-	(pt 128 192)
-	(bus)
-)
-(connector
-	(pt 128 144)
-	(pt 128 192)
-	(bus)
-)
-(connector
-	(pt 128 192)
-	(pt 128 200)
 	(bus)
 )
 (connector
@@ -817,11 +797,6 @@ agreement for further details.
 	(bus)
 )
 (connector
-	(pt 392 152)
-	(pt 136 152)
-	(bus)
-)
-(connector
 	(pt 736 -16)
 	(pt 744 -16)
 )
@@ -877,11 +852,6 @@ agreement for further details.
 (connector
 	(pt 432 152)
 	(pt 432 80)
-)
-(connector
-	(pt 136 152)
-	(pt 136 -64)
-	(bus)
 )
 (connector
 	(pt 136 -64)
@@ -1006,10 +976,40 @@ agreement for further details.
 	(pt 408 472)
 	(pt 416 472)
 )
-(junction (pt 128 192))
+(connector
+	(pt 128 232)
+	(pt 184 232)
+	(bus)
+)
+(connector
+	(pt 128 144)
+	(pt 128 200)
+	(bus)
+)
+(connector
+	(pt 128 200)
+	(pt 128 232)
+	(bus)
+)
+(connector
+	(pt 136 -64)
+	(pt 136 192)
+	(bus)
+)
+(connector
+	(pt 136 192)
+	(pt 392 192)
+	(bus)
+)
+(connector
+	(pt 392 232)
+	(pt 392 192)
+	(bus)
+)
 (junction (pt 808 16))
 (junction (pt 784 0))
 (junction (pt -40 -64))
 (junction (pt 488 -152))
 (junction (pt 744 16))
 (junction (pt 152 -152))
+(junction (pt 128 200))
