@@ -228,11 +228,15 @@ module control(input[7:0] instruction_i,
 				end
 				5'b10111: begin
 					$display("tobeadded instruction");
-					alucontrol = 4'b0001;
-					regwrite = 1'b0;
+					alucontrol = 4'b1001;
+					regwrite = 1'b1;
 					CBwrite = 1'b0;
 					memread = 1'b0;
 					memwrite = 1'b0;
+					write_addr = 3'd7;
+					write_data_control = 0;
+					rt_addr = 3'd7;
+					rs_addr = instruction_i[2:0];
 					branchb = 1'b0;
 					branchf = 1'b0;
 				end

@@ -49,6 +49,12 @@ module alu(	input[3:0] opcode_i,
 					rs_extended = {3'b000,immediate_i[4:0]};
 					alu_result_o = rs_extended;
 				end
+				4'b1001: begin //addc instruction
+					rs_extended = {1'b0,rs_i};
+					rt_extended = {1'b0,rt_i};
+					subresult = (rs_extended + rt_extended);
+					alu_result_o[7:0] = {7'b0,subresult[8]};
+				end
 			endcase
 		
 		end		
