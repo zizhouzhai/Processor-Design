@@ -15,7 +15,7 @@
 
 // PROGRAM		"Quartus II 64-Bit"
 // VERSION		"Version 14.1.0 Build 186 12/03/2014 SJ Web Edition"
-// CREATED		"Thu Feb 19 20:16:36 2015"
+// CREATED		"Fri Feb 20 03:09:07 2015"
 
 module lab3(
 	clock_i,
@@ -70,8 +70,7 @@ regfile	b2v_inst(
 	.rt_data_o(SYNTHESIZED_WIRE_26));
 
 
-control	b2v_inst1(
-	.clock_i(clock_i),
+control	b2v_inst2(
 	.cb_i(SYNTHESIZED_WIRE_7),
 	.instruction_i(SYNTHESIZED_WIRE_8),
 	.regwrite_o(SYNTHESIZED_WIRE_0),

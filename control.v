@@ -1,5 +1,4 @@
 module control(input[7:0] instruction_i,
-					input clock_i,
 					input cb_i,
 					output[3:0] alucontrol_o,
 					output[2:0] rs_addr_o,
