@@ -1,4 +1,3 @@
-﻿//instruction ROM
 // For demonstration purposes, this one has
 // 128 entries (7 bit address, supplied by 7-bit
 // PC) and of course has 8-bit output.
