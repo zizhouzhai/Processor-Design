@@ -20,6 +20,7 @@ begin
 	clock_i = 1'b1;
 	dynamcount = dynamcount + 1;
 	#200
+	clock_i = 1'b0;	
 end
 
 initial
@@ -27,7 +28,7 @@ begin
 
 	dynamcount = 0;
 	$display("starting first");
-	start_addr = 8'd93;
+	start_addr = 8'd139;
 	start_i = 1;
 	#400
 	start_i = 0;
