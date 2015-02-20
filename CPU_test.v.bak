@@ -15,9 +15,9 @@ lab3 test_lab3(
 always
 begin
 	#10
-	clock_i = 1'b1;
+	clk_i = 1'b1;
 	#10
-	clock_i = 1'b0;
+	clk_i = 1'b0;
 end
 
 initial
