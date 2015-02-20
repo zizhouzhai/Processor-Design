@@ -30,7 +30,7 @@ always @(*)
 	13: data_o = 8'b00110010; //and	$r6, $r2	
 	14: data_o = 8'b11000000; //set	0		
 	15: data_o = 8'b10101110; //seq	$r6		
-	16: data_o = 8'b11000110; //set	8		
+	16: data_o = 8'b11001000; //set	8		
 	17: data_o = 8'b11110111; //branch	$r7		
 
 	18: data_o = 8'b11000000; //set	0
@@ -62,7 +62,7 @@ always @(*)
 	42: data_o = 8'b01110111; //add	$r6, $r7
 	43: data_o = 8'b01111010; //add $r7, $r2
 	44: data_o = 8'b10000000; //slt 		
-	45: data_o = 8'b11010010; //set	24	
+	45: data_o = 8'b11010011; //set	19	
 	46: data_o = 8'b00110111; //and	$r6, $r7			
 	47: data_o = 8'b11000001; //set	1	
 	48: data_o = 8'b11100110; //sll	$r6			
@@ -70,62 +70,64 @@ always @(*)
 	 			
 	50: data_o = 8'b11000000; //set 0
 	51: data_o = 8'b01000011; //add	$r0, $r3
-	52: data_o = 8'b01001100; //add	$r1, $r4	
-	53: data_o = 8'b11000011; //set	3	
-	54: data_o = 8'b10010010; //load	$r2		
+	52: data_o = 8'b01001100; //add	$r1, $r4
+	53: data_o = 8'b01011111; //add $r3, $r7
+	54: data_o = 8'b01100111; //add $r4, $r7	
+	55: data_o = 8'b11000011; //set	3	
+	56: data_o = 8'b10010010; //load	$r2		
 //Mul2:
 		
-	55: data_o = 8'b11000001; //set	1		
-	56: data_o = 8'b00110010; //and	$r6, $r2	
-	57: data_o = 8'b11000000; //set	0	
-	58: data_o = 8'b10101110; //seq	$r6	
-	59: data_o = 8'b11000110; //set	8	
-	60: data_o = 8'b11110111; //branch	r7	
+	57: data_o = 8'b11000001; //set	1		
+	58: data_o = 8'b00110010; //and	$r6, $r2	
+	59: data_o = 8'b11000000; //set	0	
+	60: data_o = 8'b10101110; //seq	$r6	
+	61: data_o = 8'b11001000; //set	8	
+	62: data_o = 8'b11110111; //branch	r7	
 
-	61: data_o = 8'b11000000; //set	0
-	62: data_o = 8'b01111011; //add	$r7, $r3	
-	63: data_o = 8'b01011000; //add	$r3, $r0
-	64: data_o = 8'b10111000; //addc $r0	
-	65: data_o = 8'b01100100; //add $r4,$r4
-	66: data_o = 8'b11000000; //set	0	
-	67: data_o = 8'b01111100; //add	$r7, $r4	
-	68: data_o = 8'b01100001; //add	$r4, $r1	
+	63: data_o = 8'b11000000; //set	0
+	64: data_o = 8'b01111011; //add	$r7, $r3	
+	65: data_o = 8'b01011000; //add	$r3, $r0
+	66: data_o = 8'b10111000; //addc $r0	
+	67: data_o = 8'b01100100; //add $r4,$r4
+	68: data_o = 8'b11000000; //set	0	
+	69: data_o = 8'b01111100; //add	$r7, $r4	
+	70: data_o = 8'b01100001; //add	$r4, $r1	
 //Equals02:				
-	69: data_o = 8'b11000000; //set	0		
-	70: data_o = 8'b01111101; //add	$r7, $r5	
-	71: data_o = 8'b00110000; //and	$r6, $r0	
-	72: data_o = 8'b11000000; //set	0	
-	73: data_o = 8'b10101110; //seq	$r6	
-	74: data_o = 8'b11000010; //set	2	
-	75: data_o = 8'b11110111; //branch	$r7		
-	76: data_o = 8'b11000001; //set	1	
-	77: data_o = 8'b00110111; //and	$r6, $r7
-//JstShft2:		
+	71: data_o = 8'b11000000; //set	0		
+	72: data_o = 8'b01111101; //add	$r7, $r5	
+	73: data_o = 8'b00110000; //and	$r6, $r0	
+	74: data_o = 8'b11000000; //set	0	
+	75: data_o = 8'b10101110; //seq	$r6	
+	76: data_o = 8'b11000010; //set	2	
+	77: data_o = 8'b11110111; //branch	$r7		
 	78: data_o = 8'b11000001; //set	1	
-	79: data_o = 8'b11100001; //sll	$r1		
-	80: data_o = 8'b11100000; //sll	$r0		
-	81: data_o = 8'b11101010; //srl	$r2			
-	82: data_o = 8'b00111110; //and	$r7, $r6	
-	83: data_o = 8'b01001001; //add	$r1, $r1
-	84: data_o = 8'b11000000; //set	0			
-	85: data_o = 8'b01110111; //add	$r6, $r7
-	86: data_o = 8'b01111010; //add $r7, $r2
-	87: data_o = 8'b10000000; //slt 			
-	88: data_o = 8'b11010010; //set	24			
-	89: data_o = 8'b00110111; //and	$r6, $r7			
-	90: data_o = 8'b11000001; //set	1		
-	91: data_o = 8'b11100110; //sll	$r6			
-	92: data_o = 8'b10110110; //branchb	$r6		
+	79: data_o = 8'b00110111; //and	$r6, $r7
+//JstShft2:		
+	80: data_o = 8'b11000001; //set	1	
+	81: data_o = 8'b11100001; //sll	$r1		
+	82: data_o = 8'b11100000; //sll	$r0		
+	83: data_o = 8'b11101010; //srl	$r2			
+	84: data_o = 8'b00111110; //and	$r7, $r6	
+	85: data_o = 8'b01001001; //add	$r1, $r1
+	86: data_o = 8'b11000000; //set	0			
+	87: data_o = 8'b01110111; //add	$r6, $r7
+	88: data_o = 8'b01111010; //add $r7, $r2
+	89: data_o = 8'b10000000; //slt 			
+	90: data_o = 8'b11010011; //set	19			
+	91: data_o = 8'b00110111; //and	$r6, $r7			
+	92: data_o = 8'b11000001; //set	1		
+	93: data_o = 8'b11100110; //sll	$r6			
+	94: data_o = 8'b10110110; //branchb	$r6		
 
-	93: data_o = 8'b11000100; //set	4			
-	94: data_o = 8'b10011100; //store	$r4		
-	95: data_o = 8'b11000101; //set	5
-	96: data_o = 8'b10011011; //store	$r3	
-	97: data_o = 8'b10001000; //halt
+	95: data_o = 8'b11000100; //set	4			
+	96: data_o = 8'b10011100; //store	$r4		
+	97: data_o = 8'b11000101; //set	5
+	98: data_o = 8'b10011011; //store	$r3	
+	99: data_o = 8'b10001000; //halt
 
 //--------------------program 2 String match--------------------------
-	98: data_o = 8'b11000110; //set	6
-	99: data_o = 8'b10010001; //load	$r1				
+	100: data_o = 8'b11000110; //set	6
+	101: data_o = 8'b10010001; //load	$r1				
 	100: data_o = 8'b11000000; //set 	0
 	101: data_o = 8'b01000111; //add	$r0,	$r7			
 	102: data_o = 8'b11000111; //set		7
