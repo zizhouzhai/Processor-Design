@@ -226,7 +226,7 @@ module control(input[7:0] instruction_i,
 					branchb = cb_i;
 				end
 				5'b10111: begin
-					$display("tobeadded instruction");
+					$display("addc	 instruction");
 					alucontrol = 4'b1001;
 					regwrite = 1'b1;
 					CBwrite = 1'b0;
