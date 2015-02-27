@@ -1,6 +1,6 @@
 module alu(	input[3:0] opcode_i,
-				input[7:0] rs_i,
 				input[7:0] rt_i,
+				input[7:0] rs_i,
 				input[4:0] immediate_i,
 				output reg[7:0] alu_result_o,
 				output reg zero);

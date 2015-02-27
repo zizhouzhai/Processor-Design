@@ -160,7 +160,7 @@ always @(*)
 	127: data_o = 8'b00111010; //and	r7	r2		
 	128: data_o = 8'b10101001; //seq	r1				
 	129: data_o = 8'b11110100; //branch	r4
-	130: data_o = 8'b11000001; //set 	1
+	130: data_o = 8'b11000001; //set 	1 TODO ***MOVE UP ONE***
 
 	131: data_o = 8'b11101010; //srl	r2					
 	132: data_o = 8'b01000000; //add	r0	r0			
