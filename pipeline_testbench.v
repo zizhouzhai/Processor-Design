@@ -1,53 +1,59 @@
 module pipeline_testbench();
 
-reg[7:0] pc;
-reg clk1;
-wire [7:0] pc_i;
-	reg start_i;
-	reg [7:0] startadd_i;
-	wire branchb_i;
-	wire branchf_i;
-	wire [7:0] target_i;  //PC-relative address not absolute
-	wire[7:0] pc1_o;
-	
-wire [7:0] data_o;
-wire[7:0] lineout;
-	
-pc pc_module(.pc_i(pc),
-				 .clock_i(clk1),
-				 .start_i(start_i),
-				 .startadd_i(startadd_i),
-				 .branchb_i(branchb_i),
-				 .branchf_i(branchf_i),
-				 .target_i(target_i),
-				 .pc_o(pc1_o)
-				 );
+wire done; 
 
-instROM instROM_module(.address_i(pc1_o),
-								.data_o(data_o));	
+reg clock_i;
+reg start_i;
+reg [7:0] start_addr;
+reg [14:0] dynamcount;
 
-
-pipelineIFID linereg(.in_i(data_o),
-							.clk(clk1),
-							.out_o(lineout));
+reg_pu test_lab3(
+.start_i	(start_i),
+.start_addr_i	(start_addr),
+.clock_i	(clock_i),
+.done (done)
+);
 
 always
 begin
-	#150; 
-	clk1 = 1'b1; 
-	#150;
-	clk1= 1'b0; 
+	#200
+	clock_i = 1'b1;
+	dynamcount = dynamcount + 1;
+	#200
+	clock_i = 1'b0;	
 end
 
-initial begin
+initial
+begin
 
-	$display("starting test");
-	pc = 8'd0;
+	dynamcount = 0;
+	$display("starting first");
+	start_addr = 8'd100;
 	start_i = 1;
-	#300;
+	#400
 	start_i = 0;
+	wait(done == 1);
+	
+	$display("finished first");
+	$stop;
+	
+	/*start_addr = 8'd93;
+	start_i = 1;
+	#5
+	start_i = 0;
+	wait(done == 1);
+	
+
+	start_addr = 8'd138;
+	start_i = 1;
+	#5
+	start_i = 0;
+	wait(done == 1);*/
+	
 	
 end
+
+
 
 
 endmodule

@@ -19,7 +19,7 @@ always @(posedge clk_i)
 begin
 	regwrite_o <= regwrite_i;
 	write_data_control_o <= write_data_control_i;
-	alu_result_o <= aluresult_i;
+	alu_result_o <= alu_result_i;
 	rs_addr_o <= rs_addr_i;
 	rt_addr_o <= rt_addr_i;
 	write_addr_o <= write_addr_i;

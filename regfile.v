@@ -18,13 +18,13 @@ module regfile
    assign rs_data_o = regfile[rs_addr_i];
 	assign cb_data_o = conditional_bit;
 
-   always @(posedge clk_i) begin
+   always @(*) begin
 	
 		if (write_i) begin
-			regfile[write_addr_i] <= write_data_i;
+			regfile[write_addr_i] = write_data_i;
 		end
 		if (write_CB_i)begin
-			conditional_bit <= cb_data_i;
+			conditional_bit = cb_data_i;
 		end
 	end
 endmodule
