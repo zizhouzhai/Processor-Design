@@ -1,5 +1,5 @@
 module pipelineIDEM(input [3:0] alucontrol_i,
-					input write_i,
+					input regwrite_i,
 					input write_data_control_i,
 					input CBwrite_i,
 					input [7:0] rt_data_i,
@@ -27,7 +27,7 @@ module pipelineIDEM(input [3:0] alucontrol_i,
 always @(posedge clk_i)
 begin
 	alucontrol_o <= alucontro_i;
-	write_o <= write_i;
+	regwrite_o <= regwrite_i;
 	write_data_control_o <= write_data_control_i;
 	CBwrite_o <= CBwrite_i;
 	rt_data_o <= rt_data_i;
