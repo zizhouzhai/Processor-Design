@@ -18,7 +18,7 @@ module forwarding_unit(input[2:0] wb_rt_addr_i,
 								rt_muxcontrol_o = 0;
 							end
 							
-							if(em_rt_addr_i == wb_write_addr_i)begin
+							if(em_rs_addr_i == wb_write_addr_i)begin
 								rs_muxcontrol_o = wb_memread_i? 2 : 1;
 							end
 							else begin
