@@ -129,9 +129,9 @@ always @(*)
 	100: data_o = 8'b11000000; //set	0
 	101: data_o = 8'b01000111; //add r0 r7			
 	102: data_o = 8'b11000001; //set 	1
-	103: data_o = 8'b01001000; //add	$r1,	$r7			
+	103: data_o = 8'b01001000; //add	$r1,	$r0		
 	104: data_o = 8'b11000010; //set		2
-	105: data_o = 8'b01010000; //add r2 r7
+	105: data_o = 8'b01010000; //add r2 r0
 	106: data_o = 8'b11000011; //set 3	
 	107: data_o = 8'b01011000; //add	$r3,	$r0		
 	108: data_o = 8'b11000100; //set	4			

@@ -18,6 +18,8 @@ module pipelineEMWB(input clk_i,
 					output reg memread_o,
 					output reg done_o);
 								
+reg done_buf;
+								
 								
 always @(posedge clk_i)
 begin
@@ -29,7 +31,8 @@ begin
 	write_addr_o <= write_addr_i;
 	q_o <= q_i;
 	memread_o <= memread_i;
-	done_o <= done_i;
+	done_buf <= done_i;
+	done_o <= done_buf;
 end					
 								
 endmodule
