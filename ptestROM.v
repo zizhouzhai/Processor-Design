@@ -133,13 +133,13 @@ always @(*)
 	104: data_o = 8'b11000010; //set		2
 	105: data_o = 8'b01010000; //add r2 r7
 	106: data_o = 8'b11000011; //set 3	
-	107: data_o = 8'b01011000; //add	$r3,	$r0. r3 = 31		
+	107: data_o = 8'b01011000; //add	$r3,	$r0		
 	108: data_o = 8'b11000100; //set	4			
 	109: data_o = 8'b01100000; //add	$r4,	$r0
-	110: data_o = 8'b10001000; //halt			
-	111: data_o = 8'b01100000; //add	$r4,	$r0
-	112: data_o = 8'b11011000; //set	24
-	113: data_o = 8'b01111111; //add	$r7,	$r7			
+	110: data_o = 8'b11000001; //set 1
+	111: data_o = 8'b10010101; //load r5
+	112: data_o = 8'b01110101; //add r6 r5
+	113: data_o = 8'b10001000; //halt	
 	114: data_o = 8'b01101111; //add	$r5	$r7				
 
 //loadbyte
