@@ -126,9 +126,9 @@ always @(*)
 	99: data_o = 8'b10001000; //halt
 
 //--------------------program 2 String match--------------------------
-	100: data_o = 8'b11000000; //set	0
+	100: data_o = 8'b11000000; //set	1
 	101: data_o = 8'b01000111; //add r0 r7			
-	102: data_o = 8'b11000001; //set 	1
+	102: data_o = 8'b11000001; //set 1
 	103: data_o = 8'b01001000; //add	$r1,	$r0		
 	104: data_o = 8'b11000010; //set		2
 	105: data_o = 8'b01010000; //add r2 r0
@@ -137,21 +137,21 @@ always @(*)
 	108: data_o = 8'b11000100; //set	4			
 	109: data_o = 8'b01100000; //add	$r4,	$r0
 	110: data_o = 8'b11000001; //set 1
-	111: data_o = 8'b10010101; //load r5
+	111: data_o = 8'b10010101; //load r5	
 	112: data_o = 8'b01110101; //add r6 r5
-	113: data_o = 8'b10001000; //halt	
-	114: data_o = 8'b01101111; //add	$r5	$r7				
+	113: data_o = 8'b11000001; //set 1
+	114: data_o = 8'b10101001; //seq r1				
 
 //loadbyte
-	115: data_o = 8'b11000001; //set 1	
-	116: data_o = 8'b01011011; //add	$r3, 	$r3		
-	117: data_o = 8'b11000000; //set	0				
+	115: data_o = 8'b11000010; //set 2
+	116: data_o = 8'b11110111; //branch	r7	
+	117: data_o = 8'b01111111; //add				
 	118: data_o = 8'b01000111; //add 	r0	r7
-	119: data_o = 8'b01111101; //add	r7	r5
+	119: data_o = 8'b10001000; //halt
 	120: data_o = 8'b10101011; //seq	r3				
 	121: data_o = 8'b11011100; //set	27
 	122: data_o = 8'b11110111; //branch 	r7
-	123: data_o = 8'b11000000; //set	0				
+	123: data_o = 8'b01111000; //set	0				
 	124: data_o = 8'b01111011; //add	$r7,	$r3		
 	125: data_o = 8'b10010010; //load	r2				
 

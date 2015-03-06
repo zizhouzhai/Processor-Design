@@ -60,12 +60,11 @@ module control(input[7:0] instruction_i,
 					memwrite = 1'b0;
 					branchb = 1'b0;
 					branchf = 1'b0;
-					
 				end
 				5'b01???: begin
 					$display("add instruction");
 					alucontrol = 4'b0001;
-					regwrite = 1'b1;
+					regwrite = cb_i? 0:1'b1;
 					CBwrite = 1'b0;
 					write_addr = instruction_i[5:3];
 					write_data_control = 0;
@@ -79,7 +78,7 @@ module control(input[7:0] instruction_i,
 				5'b110??: begin
 					$display("set instruction");
 					alucontrol = 4'b1000;
-					regwrite = 1'b1;
+					regwrite = cb_i? 0:1'b1;
 					CBwrite = 1'b0;
 					immediate = instruction_i[4:0];
 					write_addr = 3'd7;
@@ -92,7 +91,7 @@ module control(input[7:0] instruction_i,
 				5'b11100: begin
 					$display("sll instruction");
 					alucontrol = 4'b0010;
-					regwrite = 1'b1;
+					regwrite = cb_i? 0:1'b1;
 					CBwrite = 1'b0;
 					write_addr = instruction_i[2:0];
 					write_data_control = 0;
@@ -106,7 +105,7 @@ module control(input[7:0] instruction_i,
 				5'b11101: begin
 					$display("srl instruction");
 					alucontrol = 4'b0011;
-					regwrite = 1'b1;
+					regwrite = cb_i? 0:1'b1;
 					CBwrite = 1'b0;
 					write_addr = instruction_i[2:0];
 					write_data_control = 0;
@@ -125,12 +124,12 @@ module control(input[7:0] instruction_i,
 					memread = 1'b0;
 					memwrite = 1'b0;
 					branchb = 1'b0;
-					branchf = cb_i;
+					branchf = cb_i?1:0;
 				end
 				5'b11111: begin
 					$display("subsigned instruction");
 					alucontrol = 4'b0100;
-					regwrite = 1'b1;
+					regwrite = cb_i? 0:1'b1;
 					CBwrite = 1'b0;
 					write_addr = instruction_i[2:0];
 					write_data_control = 0;
@@ -139,7 +138,7 @@ module control(input[7:0] instruction_i,
 					memread = 1'b0;
 					memwrite = 1'b0;		
 					branchb = 1'b0;
-					branchf = 1'b0;			
+					branchf = 1'b0;		
 				end
 				5'b10000: begin
 					$display("slt instruction");
@@ -167,7 +166,7 @@ module control(input[7:0] instruction_i,
 				5'b10010: begin
 					$display("load instruction");
 					alucontrol = 4'b0001;
-					regwrite = 1'b1;
+					regwrite = cb_i? 0:1'b1;
 					CBwrite = 1'b0;
 					write_addr = instruction_i[2:0];
 					write_data_control = 1;
@@ -185,14 +184,14 @@ module control(input[7:0] instruction_i,
 					rs_addr = instruction_i[2:0];
 					rt_addr = 3'd7;
 					memread = 1'b0;
-					memwrite = 1'b1;
+					memwrite = cb_i? 0:1'b1;
 					branchb = 1'b0;
 					branchf = 1'b0;
 				end
 				5'b10100: begin
 					$display("absolute instruction");
 					alucontrol = 4'b0110;
-					regwrite = 1'b1;
+					regwrite = cb_i? 0:1'b1;
 					CBwrite = 1'b0;
 					write_addr = instruction_i[2:0];
 					write_data_control = 0;
@@ -223,12 +222,12 @@ module control(input[7:0] instruction_i,
 					memread = 1'b0;
 					memwrite = 1'b0;
 					branchf = 1'b0;
-					branchb = cb_i;
+					branchb = cb_i?1:0;
 				end
 				5'b10111: begin
 					$display("addc	 instruction");
 					alucontrol = 4'b1001;
-					regwrite = 1'b1;
+					regwrite = cb_i? 0:1'b1;
 					CBwrite = 1'b0;
 					memread = 1'b0;
 					memwrite = 1'b0;

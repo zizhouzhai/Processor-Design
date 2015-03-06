@@ -17,6 +17,12 @@ module regfile
    assign rt_data_o = regfile[rt_addr_i];
    assign rs_data_o = regfile[rs_addr_i];
 	assign cb_data_o = conditional_bit;
+	
+	initial begin
+		
+		conditional_bit=0;
+		
+	end
 
    always @(*) begin
 	

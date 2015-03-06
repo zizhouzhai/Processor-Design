@@ -14,10 +14,10 @@ begin
 		pc_o <= startadd_i;
 		
 	else if(branchf_i == 1) 
-		pc_o <= pc_i + 1 + target_i;
+		pc_o <= pc_i + target_i;
 		
 	else if(branchb_i == 1) 
-		pc_o <= pc_i + 1 - target_i;
+		pc_o <= pc_i - target_i;
 		
 	else 
 		pc_o <= pc_i+ 1;
