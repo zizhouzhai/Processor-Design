@@ -28,7 +28,7 @@ begin
 
 	dynamcount = 0;
 	$display("starting first");
-	start_addr = 8'd100;
+	start_addr = 8'd0;
 	start_i = 1;
 	#400
 	start_i = 0;

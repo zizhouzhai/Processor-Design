@@ -173,7 +173,7 @@ module control(input[7:0] instruction_i,
 					memwrite = 1'b0;
 					branchb = 1'b0;
 					branchf = 1'b0;
-					done = 1'b1;
+					done = flush?0:1'b1;
 				end
 				5'b10010: begin
 					$display("load instruction");

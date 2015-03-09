@@ -147,9 +147,9 @@ always @(*)
 	116: data_o = 8'b11110111; //branch	r7	
 	117: data_o = 8'b01111111; //add				
 	118: data_o = 8'b01000111; //add 	r0	r7
-	119: data_o = 8'b10001000; //halt
-	120: data_o = 8'b10101011; //seq	r3				
-	121: data_o = 8'b11011100; //set	27
+	119: data_o = 8'b10101111; //seq r7
+	120: data_o = 8'b11010111; //set 23			
+	121: data_o = 8'b10110111; //branchb	r7
 	122: data_o = 8'b11110111; //branch 	r7
 	123: data_o = 8'b01111000; //set	0				
 	124: data_o = 8'b01111011; //add	$r7,	$r3		

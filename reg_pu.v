@@ -15,7 +15,7 @@
 
 // PROGRAM		"Quartus II 64-Bit"
 // VERSION		"Version 14.1.0 Build 186 12/03/2014 SJ Web Edition"
-// CREATED		"Fri Mar 06 00:26:14 2015"
+// CREATED		"Sun Mar 08 00:00:23 2015"
 
 module reg_pu(
 	start_i,
@@ -96,7 +96,7 @@ pc	b2v_inst(
 	.pc_o(SYNTHESIZED_WIRE_68));
 
 
-ptestROM	b2v_inst1(
+instROM	b2v_inst11(
 	.address_i(SYNTHESIZED_WIRE_68),
 	.data_o(SYNTHESIZED_WIRE_45));
 

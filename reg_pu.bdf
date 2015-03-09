@@ -384,28 +384,6 @@ agreement for further details.
 	)
 )
 (symbol
-	(rect 328 400 536 480)
-	(text "ptestROM" (rect 5 0 68 15)(font "Arial" ))
-	(text "inst1" (rect 8 64 39 79)(font "Arial" ))
-	(port
-		(pt 0 32)
-		(input)
-		(text "address_i[7..0]" (rect 0 0 96 15)(font "Arial" ))
-		(text "address_i[7..0]" (rect 21 27 117 42)(font "Arial" ))
-		(line (pt 0 32)(pt 16 32)(line_width 3))
-	)
-	(port
-		(pt 208 32)
-		(output)
-		(text "data_o[7..0]" (rect 0 0 75 15)(font "Arial" ))
-		(text "data_o[7..0]" (rect 124 27 199 42)(font "Arial" ))
-		(line (pt 208 32)(pt 192 32)(line_width 3))
-	)
-	(drawing
-		(rectangle (rect 16 16 192 64))
-	)
-)
-(symbol
 	(rect 1440 -304 1704 -96)
 	(text "pipelineEMWB" (rect 5 0 99 15)(font "Arial" ))
 	(text "inst13" (rect 8 192 48 207)(font "Arial" ))
@@ -1103,6 +1081,28 @@ agreement for further details.
 	)
 	(drawing
 		(rectangle (rect 16 16 264 192))
+	)
+)
+(symbol
+	(rect 328 400 536 480)
+	(text "instROM" (rect 5 0 60 15)(font "Arial" ))
+	(text "inst11" (rect 8 64 48 79)(font "Arial" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "address_i[7..0]" (rect 0 0 96 15)(font "Arial" ))
+		(text "address_i[7..0]" (rect 21 27 117 42)(font "Arial" ))
+		(line (pt 0 32)(pt 16 32)(line_width 3))
+	)
+	(port
+		(pt 208 32)
+		(output)
+		(text "data_o[7..0]" (rect 0 0 75 15)(font "Arial" ))
+		(text "data_o[7..0]" (rect 124 27 199 42)(font "Arial" ))
+		(line (pt 208 32)(pt 192 32)(line_width 3))
+	)
+	(drawing
+		(rectangle (rect 16 16 192 64))
 	)
 )
 (connector
