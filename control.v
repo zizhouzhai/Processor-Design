@@ -1,5 +1,6 @@
 module control(input[7:0] instruction_i,
 					input cb_i,
+					input toggle,
 					output[3:0] alucontrol_o,
 					output[2:0] rs_addr_o,
 					output[2:0] rt_addr_o,
@@ -12,7 +13,8 @@ module control(input[7:0] instruction_i,
 					output memread_o,
 					output branchb_o,
 					output branchf_o,
-					output done_o
+					output done_o,
+					output reg tog_o
 					);
 					
 		reg[3:0] alucontrol;
@@ -49,7 +51,7 @@ module control(input[7:0] instruction_i,
 		end
 					
 		always@(*)begin
-		
+		tog_o = toggle;
 			casez(instruction_i[7:3])
 			
 				5'b00???: begin		
@@ -65,6 +67,7 @@ module control(input[7:0] instruction_i,
 					memwrite = 1'b0;
 					branchb = 1'b0;
 					branchf = 1'b0;
+					flush = 0;
 				end
 				5'b01???: begin
 					$display("add instruction");
