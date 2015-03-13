@@ -10,9 +10,7 @@ module forwarding_unit(input[2:0] wb_rt_addr_i,
 							  output reg[1:0] rt_muxcontrol_o,
 							  output reg[1:0] rs_muxcontrol_o,
 							  output reg target_muxcontrol_o);
-							  
-
-						
+							  						
 						always@(*)begin
 						
 							if(em_rt_addr_i == wb_write_addr_i)begin
@@ -35,7 +33,7 @@ module forwarding_unit(input[2:0] wb_rt_addr_i,
 							else begin
 								target_muxcontrol_o = 0;
 							end
-						
+													
 						end
 			
 endmodule
